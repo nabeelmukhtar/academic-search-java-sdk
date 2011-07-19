@@ -70,8 +70,7 @@ public final class ApplicationConstants {
 	/**
 	 * Gets the property.
 	 * 
-	 * @param key
-	 *            the key
+	 * @param key the key
 	 * 
 	 * @return the property
 	 */
@@ -82,8 +81,7 @@ public final class ApplicationConstants {
 	/**
 	 * Gets the int property.
 	 * 
-	 * @param key
-	 *            the key
+	 * @param key the key
 	 * 
 	 * @return the int property
 	 */
@@ -100,8 +98,7 @@ public final class ApplicationConstants {
 	/**
 	 * Gets the boolean property.
 	 * 
-	 * @param key
-	 *            the key
+	 * @param key the key
 	 * 
 	 * @return the boolean property
 	 */
@@ -118,8 +115,7 @@ public final class ApplicationConstants {
 	/**
 	 * Gets the double property.
 	 * 
-	 * @param key
-	 *            the key
+	 * @param key the key
 	 * 
 	 * @return the double property
 	 */
@@ -136,8 +132,7 @@ public final class ApplicationConstants {
 	/**
 	 * Gets the long property.
 	 * 
-	 * @param key
-	 *            the key
+	 * @param key the key
 	 * 
 	 * @return the long property
 	 */
@@ -154,8 +149,7 @@ public final class ApplicationConstants {
 	/**
 	 * Checks if is null or empty.
 	 * 
-	 * @param s
-	 *            the s
+	 * @param s the s
 	 * 
 	 * @return true, if is null or empty
 	 */

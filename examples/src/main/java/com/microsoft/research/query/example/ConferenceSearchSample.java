@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Nabeel Mukhtar 
+ * Copyright 2011 Nabeel Mukhtar 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -32,7 +32,7 @@ import com.microsoft.research.query.AcademicSearchQueryFactory;
 import com.microsoft.research.query.ConferenceSearchQuery;
 
 /**
- * The Class BlogSample.
+ * The Class ConferenceSearchSample.
  */
 public class ConferenceSearchSample {
 

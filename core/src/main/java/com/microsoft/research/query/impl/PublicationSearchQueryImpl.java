@@ -36,8 +36,7 @@ public class PublicationSearchQueryImpl extends
 	/**
 	 * Instantiates a new publication search query impl.
 	 * 
-	 * @param applicationId
-	 *            the application id
+	 * @param applicationId the application id
 	 */
 	public PublicationSearchQueryImpl(String applicationId) {
 		super(applicationId);

@@ -5,14 +5,14 @@
     <artifactId>oss-parent</artifactId>
     <version>7</version>
   </parent>  
-  <groupId>com.googlecode.google-maps-java-sdk</groupId>
-  <artifactId>google-maps-java-sdk</artifactId>
+  <groupId>com.googlecode.academic-search-java-sdk</groupId>
+  <artifactId>academic-search-java-sdk</artifactId>
   <packaging>pom</packaging>
   <version>1.0</version>
   <name>Google Maps APIs Java SDK</name>
   <inceptionYear>2010</inceptionYear>
   <description>A Java wrapper for Google Maps Web Services APIs.</description>
-  <url>http://code.google.com/p/google-maps-java-sdk/</url>
+  <url>http://code.google.com/p/academic-search-java-sdk/</url>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -23,13 +23,13 @@
 
   <issueManagement>
     <system>google-code</system>
-    <url>http://code.google.com/p/google-maps-java-sdk/issues/list</url>
+    <url>http://code.google.com/p/academic-search-java-sdk/issues/list</url>
   </issueManagement>
 
   <scm>
-    <connection>scm:svn:http://google-maps-java-sdk.googlecode.com/svn/trunk</connection>
-    <developerConnection>scm:svn:https://google-maps-java-sdk.googlecode.com/svn/trunk</developerConnection>
-    <url>http://google-maps-java-sdk.googlecode.com/svn/trunk/</url>
+    <connection>scm:svn:http://academic-search-java-sdk.googlecode.com/svn/trunk</connection>
+    <developerConnection>scm:svn:https://academic-search-java-sdk.googlecode.com/svn/trunk</developerConnection>
+    <url>http://academic-search-java-sdk.googlecode.com/svn/trunk/</url>
   </scm>
 
   <developers>

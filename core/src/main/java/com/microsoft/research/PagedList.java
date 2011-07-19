@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Nabeel Mukhtar 
+ * Copyright 2011 Nabeel Mukhtar 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -24,17 +24,23 @@ import java.util.List;
 public interface PagedList<E> extends List<E> {
 
 	/**
-	 * @return the estimatedResultCount
+	 * Gets the total items.
+	 * 
+	 * @return the total items
 	 */
 	public long getTotalItems();
 	
 	/**
-	 * @return the currentPageIndex
+	 * Gets the start index.
+	 * 
+	 * @return the start index
 	 */
 	public int getStartIndex();
 	
 	/**
-	 * @return the moreResultsUrl
+	 * Gets the end index.
+	 * 
+	 * @return the end index
 	 */
 	public int getEndIndex();
 }

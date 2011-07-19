@@ -19,7 +19,7 @@ package com.microsoft.research.query;
 import com.microsoft.research.Organization;
 
 /**
- * The Interface PublicationSearchQuery.
+ * The Interface OrganizationSearchQuery.
  */
 public interface OrganizationSearchQuery extends
 		AcademicSearchQuery<Organization> {

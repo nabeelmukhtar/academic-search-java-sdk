@@ -29,17 +29,16 @@ import com.microsoft.research.query.constant.AcademicSearchApiUrls;
 import com.microsoft.research.query.constant.ParameterNames;
 
 /**
- * The Class PublicationSearchQueryImpl.
+ * The Class OrganizationSearchQueryImpl.
  */
 public class OrganizationSearchQueryImpl extends
 		BaseAcademicSearchApiQuery<Organization> implements
 		OrganizationSearchQuery {
 
 	/**
-	 * Instantiates a new publication search query impl.
+	 * Instantiates a new organization search query impl.
 	 * 
-	 * @param applicationId
-	 *            the application id
+	 * @param applicationId the application id
 	 */
 	public OrganizationSearchQueryImpl(String applicationId) {
 		super(applicationId);

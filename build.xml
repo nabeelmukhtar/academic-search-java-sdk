@@ -13,7 +13,7 @@
         <pathelement location="bin"/>
         <pathelement location="dev-lib/junit-4.5.jar"/>
         <pathelement location="dev-lib/commons-cli-1.2.jar"/>
-        <pathelement location="lib/gson-1.4.jar"/>
+        <pathelement location="lib/gson-1.7.1.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -30,10 +30,7 @@
             <fileset dir="core/src/test/resources" excludes="**/*.launch, **/*.java"/>
         </copy>
         <copy includeemptydirs="false" todir="bin">
-            <fileset dir="examples/src/resources" excludes="**/*.launch, **/*.java"/>
-        </copy>
-        <copy includeemptydirs="false" todir="bin">
-            <fileset dir="examples/src/java" excludes="**/*.launch, **/*.java"/>
+            <fileset dir="examples/src/main/java" excludes="**/*.launch, **/*.java"/>
         </copy>
     </target>
     <target name="clean">
@@ -61,31 +58,9 @@
             <classpath refid="microsoft-academic-search-java.classpath"/>
         </javac>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
-            <src path="examples/src/resources"/>
-            <classpath refid="microsoft-academic-search-java.classpath"/>
-        </javac>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
-            <src path="examples/src/java"/>
+            <src path="examples/src/main/java"/>
             <classpath refid="microsoft-academic-search-java.classpath"/>
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target name="GeocodingSample">
-        <java classname="com.googleapis.maps.services.example.GeocodingSample" failonerror="true" fork="yes">
-            <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRQp6rJd3H_HsG1JiwVMmomhNQm4OxQ3k_hdeVblR92hs1Ng_Afb4bofkw -query &quot;1600 Amphitheatre Parkway, Mountain View, CA&quot;"/>
-            <classpath refid="microsoft-academic-search-java.classpath"/>
-        </java>
-    </target>
-    <target name="DirectionsSample">
-        <java classname="com.googleapis.maps.services.example.DirectionsSample" failonerror="true" fork="yes">
-            <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRQp6rJd3H_HsG1JiwVMmomhNQm4OxQ3k_hdeVblR92hs1Ng_Afb4bofkw"/>
-            <classpath refid="microsoft-academic-search-java.classpath"/>
-        </java>
-    </target>
-    <target name="ElevationSample">
-        <java classname="com.googleapis.maps.services.example.ElevationSample" failonerror="true" fork="yes">
-            <arg line="-appid Nabeel"/>
-            <classpath refid="microsoft-academic-search-java.classpath"/>
-        </java>
-    </target>
 </project>

@@ -25,8 +25,7 @@ public interface AcademicSearchAuthenticationClient extends
 	/**
 	 * Sets the application key.
 	 * 
-	 * @param applicationKey
-	 *            the new application key
+	 * @param applicationKey the new application key
 	 */
 	public void setApplicationKey(String applicationKey);
 
@@ -40,16 +39,14 @@ public interface AcademicSearchAuthenticationClient extends
 	/**
 	 * Sets the user ip address.
 	 * 
-	 * @param userIpAddress
-	 *            the new user ip address
+	 * @param userIpAddress the new user ip address
 	 */
 	public void setUserIpAddress(String userIpAddress);
 
 	/**
 	 * Sets the referrer.
 	 * 
-	 * @param referrer
-	 *            the new referrer
+	 * @param referrer the new referrer
 	 */
 	public void setReferrer(String referrer);
 }

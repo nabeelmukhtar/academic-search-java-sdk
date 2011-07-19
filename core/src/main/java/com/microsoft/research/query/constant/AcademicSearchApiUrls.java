@@ -32,7 +32,8 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.microsoft.research.ValueEnum;
+import org.datacontract.schemas._2004._07.libra_service.ValueEnum;
+
 
 /**
  * The Class AcademicSearchApiUrls.
@@ -91,8 +92,7 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * Instantiates a new academic search api url builder.
 		 * 
-		 * @param urlFormat
-		 *            the url format
+		 * @param urlFormat the url format
 		 */
 		public AcademicSearchApiUrlBuilder(String urlFormat) {
 			this(urlFormat, ApplicationConstants.DEFAULT_API_VERSION);
@@ -101,10 +101,8 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * Instantiates a new academic search api url builder.
 		 * 
-		 * @param urlFormat
-		 *            the url format
-		 * @param apiVersion
-		 *            the api version
+		 * @param urlFormat the url format
+		 * @param apiVersion the api version
 		 */
 		public AcademicSearchApiUrlBuilder(String urlFormat, String apiVersion) {
 			this.urlFormat = urlFormat;
@@ -115,10 +113,8 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * With parameter.
 		 * 
-		 * @param name
-		 *            the name
-		 * @param value
-		 *            the value
+		 * @param name the name
+		 * @param value the value
 		 * 
 		 * @return the academic search api url builder
 		 */
@@ -137,12 +133,30 @@ public final class AcademicSearchApiUrls {
 		}
 
 		/**
+		 * With parameter.
+		 * 
+		 * @param name the name
+		 * @param value the value
+		 * 
+		 * @return the academic search api url builder
+		 */
+		public AcademicSearchApiUrlBuilder withParameter(String name,
+				int value) {
+			Collection<String> values = parametersMap.get(name);
+			if (values == null) {
+				values = new ArrayList<String>();
+				parametersMap.put(name, values);
+			}
+			values.add(encodeUrl(String.valueOf(value)));
+
+			return this;
+		}
+		
+		/**
 		 * With parameter suffix.
 		 * 
-		 * @param name
-		 *            the name
-		 * @param suffix
-		 *            the suffix
+		 * @param name the name
+		 * @param suffix the suffix
 		 * 
 		 * @return the academic search api url builder
 		 */
@@ -166,10 +180,8 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * With parameters.
 		 * 
-		 * @param name
-		 *            the name
-		 * @param values
-		 *            the values
+		 * @param name the name
+		 * @param values the values
 		 * 
 		 * @return the academic search api url builder
 		 */
@@ -187,10 +199,8 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * With parameter enum set.
 		 * 
-		 * @param name
-		 *            the name
-		 * @param enumSet
-		 *            the enum set
+		 * @param name the name
+		 * @param enumSet the enum set
 		 * 
 		 * @return the academic search api url builder
 		 */
@@ -210,10 +220,8 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * With parameter enum.
 		 * 
-		 * @param name
-		 *            the name
-		 * @param value
-		 *            the value
+		 * @param name the name
+		 * @param value the value
 		 * 
 		 * @return the academic search api url builder
 		 */
@@ -227,8 +235,7 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * With parameter enum map.
 		 * 
-		 * @param enumMap
-		 *            the enum map
+		 * @param enumMap the enum map
 		 * 
 		 * @return the academic search api url builder
 		 */
@@ -303,8 +310,7 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * Encode url.
 		 * 
-		 * @param original
-		 *            the original
+		 * @param original the original
 		 * 
 		 * @return the string
 		 */

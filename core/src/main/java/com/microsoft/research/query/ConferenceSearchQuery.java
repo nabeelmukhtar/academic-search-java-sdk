@@ -19,7 +19,7 @@ package com.microsoft.research.query;
 import com.microsoft.research.Conference;
 
 /**
- * The Interface PublicationSearchQuery.
+ * The Interface ConferenceSearchQuery.
  */
 public interface ConferenceSearchQuery extends
 		AcademicSearchQuery<Conference> {

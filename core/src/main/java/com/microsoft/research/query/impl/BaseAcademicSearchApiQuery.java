@@ -22,8 +22,14 @@ import java.lang.reflect.Type;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
+import org.datacontract.schemas._2004._07.libra_service.AuthorRelationshipType;
+import org.datacontract.schemas._2004._07.libra_service.OrderType;
+import org.datacontract.schemas._2004._07.libra_service.PublicationContentType;
 import org.datacontract.schemas._2004._07.libra_service.PublicationType;
+import org.datacontract.schemas._2004._07.libra_service.ReferenceRelationship;
+import org.datacontract.schemas._2004._07.libra_service.SuggestionType;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -62,8 +68,7 @@ public abstract class BaseAcademicSearchApiQuery<T> extends
 	/**
 	 * Instantiates a new base academic search api query.
 	 * 
-	 * @param applicationId
-	 *            the application id
+	 * @param applicationId the application id
 	 */
 	public BaseAcademicSearchApiQuery(String applicationId) {
 		super.setApplicationKey(applicationId);
@@ -77,10 +82,8 @@ public abstract class BaseAcademicSearchApiQuery<T> extends
 	/**
 	 * Instantiates a new base academic search api query.
 	 * 
-	 * @param applicationId
-	 *            the application id
-	 * @param apiVersion
-	 *            the api version
+	 * @param applicationId the application id
+	 * @param apiVersion the api version
 	 */
 	public BaseAcademicSearchApiQuery(String applicationId, String apiVersion) {
 		this(applicationId);
@@ -119,8 +122,7 @@ public abstract class BaseAcademicSearchApiQuery<T> extends
 	/**
 	 * Unmarshall list.
 	 * 
-	 * @param response
-	 *            the response
+	 * @param response the response
 	 * 
 	 * @return the paged list< t>
 	 */
@@ -129,12 +131,9 @@ public abstract class BaseAcademicSearchApiQuery<T> extends
 	/**
 	 * Unmarshall list.
 	 * 
-	 * @param response
-	 *            the response
-	 * @param name
-	 *            the name
-	 * @param typeToken
-	 *            the type token
+	 * @param response the response
+	 * @param name the name
+	 * @param typeToken the type token
 	 * 
 	 * @return the paged list< t>
 	 */
@@ -208,8 +207,7 @@ public abstract class BaseAcademicSearchApiQuery<T> extends
 	/**
 	 * Creates the academic search api url builder.
 	 * 
-	 * @param urlFormat
-	 *            the url format
+	 * @param urlFormat the url format
 	 * 
 	 * @return the academic search api url builder
 	 */
@@ -253,6 +251,179 @@ public abstract class BaseAcademicSearchApiQuery<T> extends
 	public AcademicSearchQuery<T> withEndIndex(int endIndex) {
 		apiUrlBuilder.withParameter(ParameterNames.END_INDEX, String
 				.valueOf(endIndex));
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withAuthorId(int)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withAuthorId(int authorId) {
+		apiUrlBuilder.withParameter(ParameterNames.AUTHOR_ID, String
+				.valueOf(authorId));
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withAuthorQuery(java.lang.String)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withAuthorQuery(String query) {
+		apiUrlBuilder.withParameter(ParameterNames.AUTHOR_QUERY, query);
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withAuthorRelationship(org.datacontract.schemas._2004._07.libra_service.AuthorRelationshipType)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withAuthorRelationship(
+			AuthorRelationshipType type) {
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withConferenceId(int)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withConferenceId(int conferenceId) {
+		apiUrlBuilder.withParameter(ParameterNames.CONFERENCE_ID, conferenceId);
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withConferenceQuery(java.lang.String)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withConferenceQuery(String query) {
+		apiUrlBuilder.withParameter(ParameterNames.CONFERENCE_QUERY, query);
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withDomainId(int)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withDomainId(int domainId) {
+		apiUrlBuilder.withParameter(ParameterNames.DOMAIN_ID, domainId);
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withJournalId(int)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withJournalId(int journalId) {
+		apiUrlBuilder.withParameter(ParameterNames.JOURNAL_ID, journalId);
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withJournalQuery(java.lang.String)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withJournalQuery(String query) {
+		apiUrlBuilder.withParameter(ParameterNames.JOURNAL_QUERY, query);
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withKeywordId(int)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withKeywordId(int keywordId) {
+		apiUrlBuilder.withParameter(ParameterNames.KEYWORD_ID, keywordId);
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withOrder(org.datacontract.schemas._2004._07.libra_service.OrderType)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withOrder(OrderType order) {
+		apiUrlBuilder.withParameter(ParameterNames.ORDER_BY, order.value());
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withOrganizationId(int)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withOrganizationId(int organizationId) {
+		apiUrlBuilder.withParameter(ParameterNames.ORGANIZATION_ID, organizationId);
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withPublicationContent(java.util.Set)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withPublicationContent(
+			Set<PublicationContentType> types) {
+		apiUrlBuilder.withParameterEnumSet(ParameterNames.PUBLICATION_CONTENT, types);
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withPublicationId(int)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withPublicationId(int publicationId) {
+		apiUrlBuilder.withParameter(ParameterNames.PUBLICATION_ID, publicationId);
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withReferenceRelationship(org.datacontract.schemas._2004._07.libra_service.ReferenceRelationship)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withReferenceRelationship(
+			ReferenceRelationship type) {
+		apiUrlBuilder.withParameterEnum(ParameterNames.REFERENCE_TYPE, type);
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withSubDomainId(int)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withSubDomainId(int subDomainId) {
+		apiUrlBuilder.withParameter(ParameterNames.SUBDOMAIN_ID, subDomainId);
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withSuggestion(org.datacontract.schemas._2004._07.libra_service.SuggestionType)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withSuggestion(SuggestionType type) {
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withTitleQuery(java.lang.String)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withTitleQuery(String query) {
+		apiUrlBuilder.withParameter(ParameterNames.TITLE_QUERY, query);
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withYearEnd(short)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withYearEnd(short year) {
+		apiUrlBuilder.withParameter(ParameterNames.YEAR_END, year);
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.AcademicSearchQuery#withYearStart(short)
+	 */
+	@Override
+	public AcademicSearchQuery<T> withYearStart(short year) {
+		apiUrlBuilder.withParameter(ParameterNames.YEAR_START, year);
 		return this;
 	}
 }

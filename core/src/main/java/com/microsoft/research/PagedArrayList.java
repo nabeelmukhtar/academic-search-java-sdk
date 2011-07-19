@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Nabeel Mukhtar 
+ * Copyright 2011 Nabeel Mukhtar 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -27,41 +27,58 @@ public class PagedArrayList<E> extends ArrayList<E> implements PagedList<E> {
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 5011544152511118680L;
 	
+	/** The start index. */
 	private int startIndex;
+	
+	/** The end index. */
 	private int endIndex;
+	
+	/** The total items. */
 	private long totalItems;
-	/**
-	 * @return the startIndex
+	
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.PagedList#getStartIndex()
 	 */
 	public int getStartIndex() {
 		return startIndex;
 	}
+	
 	/**
-	 * @param startIndex the startIndex to set
+	 * Sets the start index.
+	 * 
+	 * @param startIndex the new start index
 	 */
 	public void setStartIndex(int startIndex) {
 		this.startIndex = startIndex;
 	}
-	/**
-	 * @return the endIndex
+	
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.PagedList#getEndIndex()
 	 */
 	public int getEndIndex() {
 		return endIndex;
 	}
+	
 	/**
-	 * @param endIndex the endIndex to set
+	 * Sets the end index.
+	 * 
+	 * @param endIndex the new end index
 	 */
 	public void setEndIndex(int endIndex) {
 		this.endIndex = endIndex;
 	}
-	/**
-	 * @return the totalItems
+	
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.PagedList#getTotalItems()
 	 */
 	public long getTotalItems() {
 		return totalItems;
 	}
+	
 	/**
-	 * @param totalItems the totalItems to set
+	 * Sets the total items.
+	 * 
+	 * @param totalItems the new total items
 	 */
 	public void setTotalItems(long totalItems) {
 		this.totalItems = totalItems;

@@ -19,7 +19,7 @@ package com.microsoft.research.query;
 import com.microsoft.research.Journal;
 
 /**
- * The Interface PublicationSearchQuery.
+ * The Interface JournalSearchQuery.
  */
 public interface JournalSearchQuery extends
 		AcademicSearchQuery<Journal> {

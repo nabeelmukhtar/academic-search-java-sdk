@@ -35,8 +35,7 @@ public class AcademicSearchQueryFactory {
 	/**
 	 * Instantiates a new academic search query factory.
 	 * 
-	 * @param applicationKey
-	 *            the application key
+	 * @param applicationKey the application key
 	 */
 	private AcademicSearchQueryFactory(String applicationKey) {
 		this.applicationKey = applicationKey;
@@ -45,8 +44,7 @@ public class AcademicSearchQueryFactory {
 	/**
 	 * New instance.
 	 * 
-	 * @param applicationKey
-	 *            the application key
+	 * @param applicationKey the application key
 	 * 
 	 * @return the academic search query factory
 	 */
@@ -63,22 +61,56 @@ public class AcademicSearchQueryFactory {
 		return new PublicationSearchQueryImpl(applicationKey);
 	}
 	
+	/**
+	 * New author search query.
+	 * 
+	 * @return the author search query
+	 */
 	public AuthorSearchQuery newAuthorSearchQuery() {
 		return new AuthorSearchQueryImpl(applicationKey);
 	}
 	
+	/**
+	 * New conference search query.
+	 * 
+	 * @return the conference search query
+	 */
 	public ConferenceSearchQuery newConferenceSearchQuery() {
 		return new ConferenceSearchQueryImpl(applicationKey);
 	}
+	
+	/**
+	 * New domain search query.
+	 * 
+	 * @return the domain search query
+	 */
 	public DomainSearchQuery newDomainSearchQuery() {
 		return new DomainSearchQueryImpl(applicationKey);
 	}
+	
+	/**
+	 * New journal search query.
+	 * 
+	 * @return the journal search query
+	 */
 	public JournalSearchQuery newJournalSearchQuery() {
 		return new JournalSearchQueryImpl(applicationKey);
 	}
+	
+	/**
+	 * New keyword search query.
+	 * 
+	 * @return the keyword search query
+	 */
 	public KeywordSearchQuery newKeywordSearchQuery() {
 		return new KeywordSearchQueryImpl(applicationKey);
 	}
+	
+	/**
+	 * New organization search query.
+	 * 
+	 * @return the organization search query
+	 */
 	public OrganizationSearchQuery newOrganizationSearchQuery() {
 		return new OrganizationSearchQueryImpl(applicationKey);
 	}

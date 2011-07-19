@@ -33,8 +33,7 @@ public class AcademicSearchException extends RuntimeException {
 	/**
 	 * Instantiates a new academic search exception.
 	 * 
-	 * @param message
-	 *            the message
+	 * @param message the message
 	 */
 	public AcademicSearchException(String message) {
 		super(message);
@@ -43,8 +42,7 @@ public class AcademicSearchException extends RuntimeException {
 	/**
 	 * Instantiates a new academic search exception.
 	 * 
-	 * @param cause
-	 *            the cause
+	 * @param cause the cause
 	 */
 	public AcademicSearchException(Throwable cause) {
 		super(cause);
@@ -53,10 +51,8 @@ public class AcademicSearchException extends RuntimeException {
 	/**
 	 * Instantiates a new academic search exception.
 	 * 
-	 * @param message
-	 *            the message
-	 * @param cause
-	 *            the cause
+	 * @param message the message
+	 * @param cause the cause
 	 */
 	public AcademicSearchException(String message, Throwable cause) {
 		super(message, cause);

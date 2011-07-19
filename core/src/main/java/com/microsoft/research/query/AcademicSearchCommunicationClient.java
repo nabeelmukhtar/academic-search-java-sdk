@@ -26,8 +26,7 @@ public interface AcademicSearchCommunicationClient {
 	/**
 	 * Sets the request headers.
 	 * 
-	 * @param requestHeaders
-	 *            the request headers
+	 * @param requestHeaders the request headers
 	 */
 	public void setRequestHeaders(Map<String, String> requestHeaders);
 
@@ -41,18 +40,15 @@ public interface AcademicSearchCommunicationClient {
 	/**
 	 * Adds the request header.
 	 * 
-	 * @param headerName
-	 *            the header name
-	 * @param headerValue
-	 *            the header value
+	 * @param headerName the header name
+	 * @param headerValue the header value
 	 */
 	public void addRequestHeader(String headerName, String headerValue);
 
 	/**
 	 * Removes the request header.
 	 * 
-	 * @param headerName
-	 *            the header name
+	 * @param headerName the header name
 	 */
 	public void removeRequestHeader(String headerName);
 }

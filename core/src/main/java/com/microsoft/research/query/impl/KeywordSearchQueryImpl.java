@@ -29,17 +29,16 @@ import com.microsoft.research.query.constant.AcademicSearchApiUrls;
 import com.microsoft.research.query.constant.ParameterNames;
 
 /**
- * The Class PublicationSearchQueryImpl.
+ * The Class KeywordSearchQueryImpl.
  */
 public class KeywordSearchQueryImpl extends
 		BaseAcademicSearchApiQuery<Keyword> implements
 		KeywordSearchQuery {
 
 	/**
-	 * Instantiates a new publication search query impl.
+	 * Instantiates a new keyword search query impl.
 	 * 
-	 * @param applicationId
-	 *            the application id
+	 * @param applicationId the application id
 	 */
 	public KeywordSearchQueryImpl(String applicationId) {
 		super(applicationId);

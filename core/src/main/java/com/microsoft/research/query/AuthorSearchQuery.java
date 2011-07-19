@@ -19,7 +19,7 @@ package com.microsoft.research.query;
 import com.microsoft.research.Author;
 
 /**
- * The Interface PublicationSearchQuery.
+ * The Interface AuthorSearchQuery.
  */
 public interface AuthorSearchQuery extends
 		AcademicSearchQuery<Author> {

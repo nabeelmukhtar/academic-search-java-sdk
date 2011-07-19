@@ -19,7 +19,7 @@ package com.microsoft.research.query;
 import com.microsoft.research.Domain;
 
 /**
- * The Interface PublicationSearchQuery.
+ * The Interface DomainSearchQuery.
  */
 public interface DomainSearchQuery extends
 		AcademicSearchQuery<Domain> {

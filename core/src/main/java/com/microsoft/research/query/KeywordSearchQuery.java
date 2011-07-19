@@ -19,7 +19,7 @@ package com.microsoft.research.query;
 import com.microsoft.research.Keyword;
 
 /**
- * The Interface PublicationSearchQuery.
+ * The Interface KeywordSearchQuery.
  */
 public interface KeywordSearchQuery extends
 		AcademicSearchQuery<Keyword> {

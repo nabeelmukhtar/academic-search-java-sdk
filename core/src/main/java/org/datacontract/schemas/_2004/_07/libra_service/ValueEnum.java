@@ -14,7 +14,7 @@
  * limitations under the License. 
  * 
  */
-package com.microsoft.research;
+package org.datacontract.schemas._2004._07.libra_service;
 
 /**
  * The Interface ValueEnum.
