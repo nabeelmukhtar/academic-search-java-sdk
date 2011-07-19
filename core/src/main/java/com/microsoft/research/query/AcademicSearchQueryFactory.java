@@ -16,6 +16,12 @@
  */
 package com.microsoft.research.query;
 
+import com.microsoft.research.query.impl.AuthorSearchQueryImpl;
+import com.microsoft.research.query.impl.ConferenceSearchQueryImpl;
+import com.microsoft.research.query.impl.DomainSearchQueryImpl;
+import com.microsoft.research.query.impl.JournalSearchQueryImpl;
+import com.microsoft.research.query.impl.KeywordSearchQueryImpl;
+import com.microsoft.research.query.impl.OrganizationSearchQueryImpl;
 import com.microsoft.research.query.impl.PublicationSearchQueryImpl;
 
 /**
@@ -55,5 +61,25 @@ public class AcademicSearchQueryFactory {
 	 */
 	public PublicationSearchQuery newPublicationSearchQuery() {
 		return new PublicationSearchQueryImpl(applicationKey);
+	}
+	
+	public AuthorSearchQuery newAuthorSearchQuery() {
+		return new AuthorSearchQueryImpl(applicationKey);
+	}
+	
+	public ConferenceSearchQuery newConferenceSearchQuery() {
+		return new ConferenceSearchQueryImpl(applicationKey);
+	}
+	public DomainSearchQuery newDomainSearchQuery() {
+		return new DomainSearchQueryImpl(applicationKey);
+	}
+	public JournalSearchQuery newJournalSearchQuery() {
+		return new JournalSearchQueryImpl(applicationKey);
+	}
+	public KeywordSearchQuery newKeywordSearchQuery() {
+		return new KeywordSearchQueryImpl(applicationKey);
+	}
+	public OrganizationSearchQuery newOrganizationSearchQuery() {
+		return new OrganizationSearchQueryImpl(applicationKey);
 	}
 }
