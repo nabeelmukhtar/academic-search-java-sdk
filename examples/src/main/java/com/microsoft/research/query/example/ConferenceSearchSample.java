@@ -73,7 +73,7 @@ public class ConferenceSearchSample {
         } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
     		AcademicSearchQueryFactory factory = AcademicSearchQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
     		ConferenceSearchQuery query = factory.newConferenceSearchQuery();
-    		PagedList<Conference> response = query.withFullTextQuery(line.getOptionValue(QUERY_OPTION)).list();
+    		PagedList<Conference> response = query.withFullTextQuery(line.getOptionValue(QUERY_OPTION)).withStartIndex(1).withEndIndex(5).list();
     		printResponse(response);
         } else {
         	printHelp(options);
