@@ -34,8 +34,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.zip.GZIPInputStream;
 
-import com.microsoft.research.query.AcademicSearchException;
 import com.microsoft.research.query.constant.ApplicationConstants;
+import com.microsoft.research.query.exception.AcademicSearchException;
 
 /**
  * The Class AcademicSearchApiGateway.

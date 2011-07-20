@@ -23,6 +23,7 @@ import com.microsoft.research.query.impl.JournalSearchQueryImpl;
 import com.microsoft.research.query.impl.KeywordSearchQueryImpl;
 import com.microsoft.research.query.impl.OrganizationSearchQueryImpl;
 import com.microsoft.research.query.impl.PublicationSearchQueryImpl;
+import com.microsoft.research.query.impl.TrendSearchQueryImpl;
 
 /**
  * A factory for creating AcademicSearchQuery objects.
@@ -113,5 +114,14 @@ public class AcademicSearchQueryFactory {
 	 */
 	public OrganizationSearchQuery newOrganizationSearchQuery() {
 		return new OrganizationSearchQueryImpl(applicationKey);
+	}
+
+	/**
+	 * New trend search query.
+	 * 
+	 * @return the trend search query
+	 */
+	public TrendSearchQuery newTrendSearchQuery() {
+		return new TrendSearchQueryImpl(applicationKey);
 	}
 }

@@ -14,7 +14,7 @@
  * limitations under the License. 
  * 
  */
-package com.microsoft.research.query;
+package com.microsoft.research.query.exception;
 
 /**
  * The Class AcademicSearchException.
@@ -23,6 +23,9 @@ public class AcademicSearchException extends RuntimeException {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -2392119987027760999L;
+	
+	/** The result code. */
+	private int resultCode;
 
 	/**
 	 * Instantiates a new academic search exception.
@@ -42,6 +45,17 @@ public class AcademicSearchException extends RuntimeException {
 	/**
 	 * Instantiates a new academic search exception.
 	 * 
+	 * @param message the message
+	 * @param resultCode the result code
+	 */
+	public AcademicSearchException(String message, int resultCode) {
+		super(message);
+		this.resultCode = resultCode;
+	}
+	
+	/**
+	 * Instantiates a new academic search exception.
+	 * 
 	 * @param cause the cause
 	 */
 	public AcademicSearchException(Throwable cause) {
@@ -56,5 +70,23 @@ public class AcademicSearchException extends RuntimeException {
 	 */
 	public AcademicSearchException(String message, Throwable cause) {
 		super(message, cause);
+	}
+
+	/**
+	 * Gets the result code.
+	 * 
+	 * @return the result code
+	 */
+	public int getResultCode() {
+		return resultCode;
+	}
+
+	/**
+	 * Sets the result code.
+	 * 
+	 * @param resultCode the new result code
+	 */
+	public void setResultCode(int resultCode) {
+		this.resultCode = resultCode;
 	}
 }

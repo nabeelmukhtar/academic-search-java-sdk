@@ -43,11 +43,15 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.microsoft.research.PagedArrayList;
 import com.microsoft.research.PagedList;
-import com.microsoft.research.query.AcademicSearchException;
 import com.microsoft.research.query.AcademicSearchQuery;
 import com.microsoft.research.query.constant.ApplicationConstants;
 import com.microsoft.research.query.constant.ParameterNames;
 import com.microsoft.research.query.constant.AcademicSearchApiUrls.AcademicSearchApiUrlBuilder;
+import com.microsoft.research.query.exception.AcademicSearchException;
+import com.microsoft.research.query.exception.InvalidAppIdException;
+import com.microsoft.research.query.exception.InvalidParametersException;
+import com.microsoft.research.query.exception.ServiceUnavailableException;
+import com.microsoft.research.query.exception.UnsupportedSearchConditionException;
 
 /**
  * The Class BaseAcademicSearchApiQuery.
@@ -105,17 +109,46 @@ public abstract class BaseAcademicSearchApiQuery<T> extends
 			if (response.isJsonObject()) {
 				JsonElement jsonElement = response.getAsJsonObject().get("d");
 				if (jsonElement != null && jsonElement.isJsonObject()) {
-					PagedList<T> responseList = unmarshallList(jsonElement
-							.getAsJsonObject());
-					return responseList;
+					JsonObject jsonObject = jsonElement.getAsJsonObject();
+					int resultCode = jsonObject.get("ResultCode").getAsInt();
+					if (resultCode == 0) {
+						PagedList<T> responseList = unmarshallList(jsonObject);
+						return responseList;
+					} else {
+						throw createAcademicSearchException(resultCode);
+					}
 				}
 			}
 			throw new AcademicSearchException(
 					"Unknown content found in response:" + response.toString());
+		} catch (AcademicSearchException e) {
+			throw e;
 		} catch (Exception e) {
 			throw new AcademicSearchException(e);
 		} finally {
 			closeStream(jsonContent);
+		}
+	}
+
+	/**
+	 * Creates the academic search exception.
+	 * 
+	 * @param resultCode the result code
+	 * 
+	 * @return the academic search exception
+	 */
+	private AcademicSearchException createAcademicSearchException(int resultCode) {
+		switch (resultCode) {
+		case 1:
+			return new InvalidAppIdException();
+		case 2:
+			return new InvalidParametersException();
+		case 3:
+			return new ServiceUnavailableException();
+		case 4:
+			return new UnsupportedSearchConditionException();
+		default:
+			return new AcademicSearchException();
 		}
 	}
 
