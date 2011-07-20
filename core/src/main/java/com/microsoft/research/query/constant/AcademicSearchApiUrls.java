@@ -34,7 +34,6 @@ import java.util.logging.Logger;
 
 import org.datacontract.schemas._2004._07.libra_service.ValueEnum;
 
-
 /**
  * The Class AcademicSearchApiUrls.
  */
@@ -48,11 +47,11 @@ public final class AcademicSearchApiUrls {
 			.getLogger(AcademicSearchApiUrls.class.getCanonicalName());
 
 	/** The Constant googleApiUrls. */
-	private static final Properties googleApiUrls = new Properties();
+	private static final Properties academicSearchApiUrls = new Properties();
 
 	static {
 		try {
-			googleApiUrls.load(AcademicSearchApiUrls.class
+			academicSearchApiUrls.load(AcademicSearchApiUrls.class
 					.getResourceAsStream(API_URLS_FILE));
 		} catch (IOException e) {
 			LOG.log(Level.SEVERE, "An error occurred while loading urls.", e);
@@ -60,8 +59,20 @@ public final class AcademicSearchApiUrls {
 	}
 
 	/** The Constant SEARCH_URL. */
-	public static final String SEARCH_URL = googleApiUrls
+	public static final String SEARCH_URL = academicSearchApiUrls
 			.getProperty("com.microsoft.research.query.search");
+	public static final String GET_DOMAIN_LIST = academicSearchApiUrls
+			.getProperty("com.microsoft.research.query.getDomainList");
+	public static final String GET_SUB_DOMAIN_LIST = academicSearchApiUrls
+			.getProperty("com.microsoft.research.query.getSubDomainList");
+	public static final String GET_MOST_VIEWED_AUTHOR_LIST = academicSearchApiUrls
+			.getProperty("com.microsoft.research.query.getMostViewedAuthorList");
+	public static final String GET_MOST_VIEWED_PUBLICATION_LIST = academicSearchApiUrls
+			.getProperty("com.microsoft.research.query.getMostViewedPublicationList");
+	public static final String GET_LATEST_UPDATED_AUTHOR_LIST = academicSearchApiUrls
+			.getProperty("com.microsoft.research.query.getLatestUpdatedAuthorList");
+	public static final String GET_LATEST_UPDATED_PUBLICATION_LIST = academicSearchApiUrls
+			.getProperty("com.microsoft.research.query.getLatestUpdatedPublicationList");
 
 	/**
 	 * Instantiates a new academic search api urls.
@@ -92,7 +103,8 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * Instantiates a new academic search api url builder.
 		 * 
-		 * @param urlFormat the url format
+		 * @param urlFormat
+		 *            the url format
 		 */
 		public AcademicSearchApiUrlBuilder(String urlFormat) {
 			this(urlFormat, ApplicationConstants.DEFAULT_API_VERSION);
@@ -101,8 +113,10 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * Instantiates a new academic search api url builder.
 		 * 
-		 * @param urlFormat the url format
-		 * @param apiVersion the api version
+		 * @param urlFormat
+		 *            the url format
+		 * @param apiVersion
+		 *            the api version
 		 */
 		public AcademicSearchApiUrlBuilder(String urlFormat, String apiVersion) {
 			this.urlFormat = urlFormat;
@@ -113,8 +127,10 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * With parameter.
 		 * 
-		 * @param name the name
-		 * @param value the value
+		 * @param name
+		 *            the name
+		 * @param value
+		 *            the value
 		 * 
 		 * @return the academic search api url builder
 		 */
@@ -135,13 +151,14 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * With parameter.
 		 * 
-		 * @param name the name
-		 * @param value the value
+		 * @param name
+		 *            the name
+		 * @param value
+		 *            the value
 		 * 
 		 * @return the academic search api url builder
 		 */
-		public AcademicSearchApiUrlBuilder withParameter(String name,
-				int value) {
+		public AcademicSearchApiUrlBuilder withParameter(String name, int value) {
 			Collection<String> values = parametersMap.get(name);
 			if (values == null) {
 				values = new ArrayList<String>();
@@ -151,12 +168,14 @@ public final class AcademicSearchApiUrls {
 
 			return this;
 		}
-		
+
 		/**
 		 * With parameter suffix.
 		 * 
-		 * @param name the name
-		 * @param suffix the suffix
+		 * @param name
+		 *            the name
+		 * @param suffix
+		 *            the suffix
 		 * 
 		 * @return the academic search api url builder
 		 */
@@ -180,8 +199,10 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * With parameters.
 		 * 
-		 * @param name the name
-		 * @param values the values
+		 * @param name
+		 *            the name
+		 * @param values
+		 *            the values
 		 * 
 		 * @return the academic search api url builder
 		 */
@@ -199,8 +220,10 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * With parameter enum set.
 		 * 
-		 * @param name the name
-		 * @param enumSet the enum set
+		 * @param name
+		 *            the name
+		 * @param enumSet
+		 *            the enum set
 		 * 
 		 * @return the academic search api url builder
 		 */
@@ -220,8 +243,10 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * With parameter enum.
 		 * 
-		 * @param name the name
-		 * @param value the value
+		 * @param name
+		 *            the name
+		 * @param value
+		 *            the value
 		 * 
 		 * @return the academic search api url builder
 		 */
@@ -235,7 +260,8 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * With parameter enum map.
 		 * 
-		 * @param enumMap the enum map
+		 * @param enumMap
+		 *            the enum map
 		 * 
 		 * @return the academic search api url builder
 		 */
@@ -310,7 +336,8 @@ public final class AcademicSearchApiUrls {
 		/**
 		 * Encode url.
 		 * 
-		 * @param original the original
+		 * @param original
+		 *            the original
 		 * 
 		 * @return the string
 		 */

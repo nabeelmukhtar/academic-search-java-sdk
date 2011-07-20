@@ -60,8 +60,8 @@ public interface ParameterNames {
 	/** The Constant DOMAIN_ID. */
 	public static final String DOMAIN_ID = "DomainID";
 	
-	/** The Constant SUBDOMAIN_ID. */
-	public static final String SUBDOMAIN_ID = "SubDomainID";
+	/** The Constant SUB_DOMAIN_ID. */
+	public static final String SUB_DOMAIN_ID = "SubDomainID";
 	
 	/** The Constant KEYWORD_ID. */
 	public static final String KEYWORD_ID = "KeywordID";

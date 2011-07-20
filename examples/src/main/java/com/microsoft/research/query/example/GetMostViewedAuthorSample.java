@@ -26,21 +26,18 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import com.microsoft.research.Author;
 import com.microsoft.research.PagedList;
-import com.microsoft.research.TrendPoint;
 import com.microsoft.research.query.AcademicSearchQueryFactory;
-import com.microsoft.research.query.TrendSearchQuery;
+import com.microsoft.research.query.GetMostViewedAuthorQuery;
 
 /**
- * The Class TrendSearchSample.
+ * The Class GetMostViewedAuthorSample.
  */
-public class TrendSearchSample {
+public class GetMostViewedAuthorSample {
 
     /** The Constant APPLICATION_KEY_OPTION. */
     private static final String APPLICATION_KEY_OPTION = "appid";
-	
-    /** The Constant QUERY_OPTION. */
-    private static final String QUERY_OPTION = "query";
 	
     /** The Constant HELP_OPTION. */
     private static final String HELP_OPTION = "help";
@@ -70,10 +67,10 @@ public class TrendSearchSample {
     private static void processCommandLine(CommandLine line, Options options) {
         if(line.hasOption(HELP_OPTION)) {
             printHelp(options);            
-        } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
+        } else if(line.hasOption(APPLICATION_KEY_OPTION)) {
     		AcademicSearchQueryFactory factory = AcademicSearchQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
-    		TrendSearchQuery query = factory.newTrendSearchQuery();
-    		PagedList<TrendPoint> response = query.withJournalId(221).withStartIndex(1).withEndIndex(5).list();
+    		GetMostViewedAuthorQuery query = factory.newGetMostViewedAuthorQuery();
+    		PagedList<Author> response = query.withDomainId(1).list();
     		printResponse(response);
         } else {
         	printHelp(options);
@@ -85,14 +82,14 @@ public class TrendSearchSample {
 	 * 
 	 * @param response the response
 	 */
-	private static void printResponse(PagedList<TrendPoint> response) {
+	private static void printResponse(PagedList<Author> response) {
 		System.out.println(response.getStartIndex());
 		System.out.println(response.getEndIndex());
 		System.out.println(response.getTotalItems());
-		for (TrendPoint result : response) {
-			System.out.println(result.getCitationCount());			
-			System.out.println(result.getPublicationCount());			
-			System.out.println(result.getYear());			
+		for (Author result : response) {
+			System.out.println(result.getFirstName() + result.getLastName());			
+			System.out.println(result.getHomepageURL());			
+			System.out.println(result.getAffiliation());			
 			System.out.println("=======================================");			
 		}
 	}
@@ -117,13 +114,6 @@ public class TrendSearchSample {
         Option applicationKey = OptionBuilder.create(APPLICATION_KEY_OPTION);
         opts.addOption(applicationKey);
         
-        String queryMsg = "Search Query.";
-        OptionBuilder.withArgName("query");
-        OptionBuilder.hasArg();
-        OptionBuilder.withDescription(queryMsg);
-        Option query = OptionBuilder.create(QUERY_OPTION);
-        opts.addOption(query);
-        
         return opts;
     }
     
@@ -134,8 +124,8 @@ public class TrendSearchSample {
      */
     private static void printHelp(Options options) {
         int width = 80;
-        String syntax = TrendSearchSample.class.getName() + " <options>";
-        String header = MessageFormat.format("\nThe -{0} and -{1} options are required. All others are optional.", APPLICATION_KEY_OPTION, QUERY_OPTION);
+        String syntax = GetMostViewedAuthorSample.class.getName() + " <options>";
+        String header = MessageFormat.format("\nThe -{0} option is required. All others are optional.", APPLICATION_KEY_OPTION);
         new HelpFormatter().printHelp(width, syntax, header, options, null, false);
     }
 }

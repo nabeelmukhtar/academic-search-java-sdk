@@ -19,6 +19,11 @@ package com.microsoft.research.query;
 import com.microsoft.research.query.impl.AuthorSearchQueryImpl;
 import com.microsoft.research.query.impl.ConferenceSearchQueryImpl;
 import com.microsoft.research.query.impl.DomainSearchQueryImpl;
+import com.microsoft.research.query.impl.GetDomainListQueryImpl;
+import com.microsoft.research.query.impl.GetLatestUpdatedAuthorQueryImpl;
+import com.microsoft.research.query.impl.GetLatestUpdatedPublicationQueryImpl;
+import com.microsoft.research.query.impl.GetMostViewedAuthorQueryImpl;
+import com.microsoft.research.query.impl.GetMostViewedPublicationQueryImpl;
 import com.microsoft.research.query.impl.JournalSearchQueryImpl;
 import com.microsoft.research.query.impl.KeywordSearchQueryImpl;
 import com.microsoft.research.query.impl.OrganizationSearchQueryImpl;
@@ -123,5 +128,50 @@ public class AcademicSearchQueryFactory {
 	 */
 	public TrendSearchQuery newTrendSearchQuery() {
 		return new TrendSearchQueryImpl(applicationKey);
+	}
+	
+	/**
+	 * New get domain list query.
+	 * 
+	 * @return the gets the domain list query
+	 */
+	public GetDomainListQuery newGetDomainListQuery() {
+		return new GetDomainListQueryImpl(applicationKey);
+	}
+	
+	/**
+	 * New get latest updated author query.
+	 * 
+	 * @return the gets the latest updated author query
+	 */
+	public GetLatestUpdatedAuthorQuery newGetLatestUpdatedAuthorQuery() {
+		return new GetLatestUpdatedAuthorQueryImpl(applicationKey);
+	}
+	
+	/**
+	 * New get latest updated publication query.
+	 * 
+	 * @return the gets the latest updated publication query
+	 */
+	public GetLatestUpdatedPublicationQuery newGetLatestUpdatedPublicationQuery() {
+		return new GetLatestUpdatedPublicationQueryImpl(applicationKey);
+	}
+	
+	/**
+	 * New get most viewed author query.
+	 * 
+	 * @return the gets the most viewed author query
+	 */
+	public GetMostViewedAuthorQuery newGetMostViewedAuthorQuery() {
+		return new GetMostViewedAuthorQueryImpl(applicationKey);
+	}
+	
+	/**
+	 * New get most viewed publication query.
+	 * 
+	 * @return the gets the most viewed publication query
+	 */
+	public GetMostViewedPublicationQuery newGetMostViewedPublicationQuery() {
+		return new GetMostViewedPublicationQueryImpl(applicationKey);
 	}
 }

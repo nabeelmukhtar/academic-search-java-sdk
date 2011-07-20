@@ -453,22 +453,6 @@ public abstract class AcademicSearchApiGateway {
 	}
 
 	/**
-	 * Read response.
-	 * 
-	 * @param clazz the clazz
-	 * @param is the is
-	 * 
-	 * @return the t
-	 */
-	protected <T> T readResponse(Class<T> clazz, InputStream is) {
-		try {
-			return unmarshallObject(clazz, is);
-		} finally {
-			closeStream(is);
-		}
-	}
-
-	/**
 	 * Encode url.
 	 * 
 	 * @param original the original
@@ -484,15 +468,4 @@ public abstract class AcademicSearchApiGateway {
 			return original;
 		}
 	}
-
-	/**
-	 * Unmarshall object.
-	 * 
-	 * @param clazz the clazz
-	 * @param xmlContent the xml content
-	 * 
-	 * @return the t
-	 */
-	protected abstract <T> T unmarshallObject(Class<T> clazz,
-			InputStream xmlContent);
 }
