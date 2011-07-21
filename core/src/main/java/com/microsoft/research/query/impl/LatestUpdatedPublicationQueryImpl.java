@@ -20,42 +20,25 @@ import java.util.List;
 
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
-import com.microsoft.research.Author;
 import com.microsoft.research.PagedList;
-import com.microsoft.research.query.GetMostViewedAuthorQuery;
+import com.microsoft.research.Publication;
+import com.microsoft.research.query.LatestUpdatedPublicationQuery;
 import com.microsoft.research.query.constant.AcademicSearchApiUrls;
-import com.microsoft.research.query.constant.ParameterNames;
 
 /**
- * The Class GetMostViewedAuthorQueryImpl.
+ * The Class LatestUpdatedPublicationQueryImpl.
  */
-public class GetMostViewedAuthorQueryImpl extends
-		BaseApiQuery<Author> implements
-		GetMostViewedAuthorQuery {
+public class LatestUpdatedPublicationQueryImpl extends
+		BaseApiQuery<Publication> implements
+		LatestUpdatedPublicationQuery {
 
 	/**
-	 * Instantiates a new gets the most viewed author query impl.
+	 * Instantiates a new latest updated publication query impl.
 	 * 
 	 * @param applicationId the application id
 	 */
-	public GetMostViewedAuthorQueryImpl(String applicationId) {
+	public LatestUpdatedPublicationQueryImpl(String applicationId) {
 		super(applicationId);
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.microsoft.research.query.GetMostViewedAuthorQuery#withDomainId(int)
-	 */
-	public GetMostViewedAuthorQuery withDomainId(int domainId) {
-		apiUrlBuilder.withParameter(ParameterNames.DOMAIN_ID, domainId);
-		return this;
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.microsoft.research.query.GetMostViewedAuthorQuery#withSubDomainId(int)
-	 */
-	public GetMostViewedAuthorQuery withSubDomainId(int subDomainId) {
-		apiUrlBuilder.withParameter(ParameterNames.SUB_DOMAIN_ID, subDomainId);
-		return this;
 	}
 
 	/*
@@ -65,7 +48,7 @@ public class GetMostViewedAuthorQueryImpl extends
 	 */
 	@Override
 	public void reset() {
-		apiUrlBuilder = createAcademicSearchApiUrlBuilder(AcademicSearchApiUrls.GET_MOST_VIEWED_AUTHOR_LIST);
+		apiUrlBuilder = createAcademicSearchApiUrlBuilder(AcademicSearchApiUrls.GET_LATEST_UPDATED_PUBLICATION_LIST);
 	}
 
 	/*
@@ -74,9 +57,9 @@ public class GetMostViewedAuthorQueryImpl extends
 	 * @see com.microsoft.research.query.impl.BaseAcademicSearchApiQuery#unmarshallList(com.google.gson.JsonObject)
 	 */
 	@Override
-	protected PagedList<Author> unmarshallList(JsonObject response) {
+	protected PagedList<Publication> unmarshallList(JsonObject response) {
 		return super.unmarshallList(response, null,
-				new TypeToken<List<Author>>() {
+				new TypeToken<List<Publication>>() {
 				});
 	}
 }

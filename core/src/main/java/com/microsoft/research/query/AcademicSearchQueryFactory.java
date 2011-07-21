@@ -19,11 +19,11 @@ package com.microsoft.research.query;
 import com.microsoft.research.query.impl.AuthorSearchQueryImpl;
 import com.microsoft.research.query.impl.ConferenceSearchQueryImpl;
 import com.microsoft.research.query.impl.DomainSearchQueryImpl;
-import com.microsoft.research.query.impl.GetDomainListQueryImpl;
-import com.microsoft.research.query.impl.GetLatestUpdatedAuthorQueryImpl;
-import com.microsoft.research.query.impl.GetLatestUpdatedPublicationQueryImpl;
-import com.microsoft.research.query.impl.GetMostViewedAuthorQueryImpl;
-import com.microsoft.research.query.impl.GetMostViewedPublicationQueryImpl;
+import com.microsoft.research.query.impl.DomainListQueryImpl;
+import com.microsoft.research.query.impl.LatestUpdatedAuthorQueryImpl;
+import com.microsoft.research.query.impl.LatestUpdatedPublicationQueryImpl;
+import com.microsoft.research.query.impl.MostViewedAuthorQueryImpl;
+import com.microsoft.research.query.impl.MostViewedPublicationQueryImpl;
 import com.microsoft.research.query.impl.JournalSearchQueryImpl;
 import com.microsoft.research.query.impl.KeywordSearchQueryImpl;
 import com.microsoft.research.query.impl.OrganizationSearchQueryImpl;
@@ -131,47 +131,47 @@ public class AcademicSearchQueryFactory {
 	}
 	
 	/**
-	 * New get domain list query.
+	 * New domain list query.
 	 * 
-	 * @return the gets the domain list query
+	 * @return the domain list query
 	 */
-	public GetDomainListQuery newGetDomainListQuery() {
-		return new GetDomainListQueryImpl(applicationKey);
+	public DomainListQuery newDomainListQuery() {
+		return new DomainListQueryImpl(applicationKey);
 	}
 	
 	/**
-	 * New get latest updated author query.
+	 * New latest updated author query.
 	 * 
-	 * @return the gets the latest updated author query
+	 * @return the latest updated author query
 	 */
-	public GetLatestUpdatedAuthorQuery newGetLatestUpdatedAuthorQuery() {
-		return new GetLatestUpdatedAuthorQueryImpl(applicationKey);
+	public LatestUpdatedAuthorQuery newLatestUpdatedAuthorQuery() {
+		return new LatestUpdatedAuthorQueryImpl(applicationKey);
 	}
 	
 	/**
-	 * New get latest updated publication query.
+	 * New latest updated publication query.
 	 * 
-	 * @return the gets the latest updated publication query
+	 * @return the latest updated publication query
 	 */
-	public GetLatestUpdatedPublicationQuery newGetLatestUpdatedPublicationQuery() {
-		return new GetLatestUpdatedPublicationQueryImpl(applicationKey);
+	public LatestUpdatedPublicationQuery newLatestUpdatedPublicationQuery() {
+		return new LatestUpdatedPublicationQueryImpl(applicationKey);
 	}
 	
 	/**
-	 * New get most viewed author query.
+	 * New most viewed author query.
 	 * 
-	 * @return the gets the most viewed author query
+	 * @return the most viewed author query
 	 */
-	public GetMostViewedAuthorQuery newGetMostViewedAuthorQuery() {
-		return new GetMostViewedAuthorQueryImpl(applicationKey);
+	public MostViewedAuthorQuery newMostViewedAuthorQuery() {
+		return new MostViewedAuthorQueryImpl(applicationKey);
 	}
 	
 	/**
-	 * New get most viewed publication query.
+	 * New most viewed publication query.
 	 * 
-	 * @return the gets the most viewed publication query
+	 * @return the most viewed publication query
 	 */
-	public GetMostViewedPublicationQuery newGetMostViewedPublicationQuery() {
-		return new GetMostViewedPublicationQueryImpl(applicationKey);
+	public MostViewedPublicationQuery newMostViewedPublicationQuery() {
+		return new MostViewedPublicationQueryImpl(applicationKey);
 	}
 }

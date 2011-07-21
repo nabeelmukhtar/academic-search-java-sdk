@@ -22,25 +22,42 @@ import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.microsoft.research.PagedList;
 import com.microsoft.research.Publication;
-import com.microsoft.research.query.GetLatestUpdatedPublicationQuery;
+import com.microsoft.research.query.MostViewedPublicationQuery;
 import com.microsoft.research.query.constant.AcademicSearchApiUrls;
+import com.microsoft.research.query.constant.ParameterNames;
 
 /**
- * The Class GetLatestUpdatedPublicationQueryImpl.
+ * The Class MostViewedPublicationQueryImpl.
  */
-public class GetLatestUpdatedPublicationQueryImpl extends
+public class MostViewedPublicationQueryImpl extends
 		BaseApiQuery<Publication> implements
-		GetLatestUpdatedPublicationQuery {
+		MostViewedPublicationQuery {
 
 	/**
-	 * Instantiates a new gets the latest updated publication query impl.
+	 * Instantiates a new most viewed publication query impl.
 	 * 
 	 * @param applicationId the application id
 	 */
-	public GetLatestUpdatedPublicationQueryImpl(String applicationId) {
+	public MostViewedPublicationQueryImpl(String applicationId) {
 		super(applicationId);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.GetMostViewedPublicationQuery#withDomainId(int)
+	 */
+	public MostViewedPublicationQuery withDomainId(int domainId) {
+		apiUrlBuilder.withParameter(ParameterNames.DOMAIN_ID, domainId);
+		return this;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.GetMostViewedPublicationQuery#withSubDomainId(int)
+	 */
+	public MostViewedPublicationQuery withSubDomainId(int subDomainId) {
+		apiUrlBuilder.withParameter(ParameterNames.SUB_DOMAIN_ID, subDomainId);
+		return this;
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -48,7 +65,7 @@ public class GetLatestUpdatedPublicationQueryImpl extends
 	 */
 	@Override
 	public void reset() {
-		apiUrlBuilder = createAcademicSearchApiUrlBuilder(AcademicSearchApiUrls.GET_LATEST_UPDATED_PUBLICATION_LIST);
+		apiUrlBuilder = createAcademicSearchApiUrlBuilder(AcademicSearchApiUrls.GET_MOST_VIEWED_PUBLICATION_LIST);
 	}
 
 	/*

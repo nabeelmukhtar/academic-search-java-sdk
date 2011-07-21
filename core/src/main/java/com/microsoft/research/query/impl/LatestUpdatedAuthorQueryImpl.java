@@ -22,22 +22,22 @@ import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.microsoft.research.Author;
 import com.microsoft.research.PagedList;
-import com.microsoft.research.query.GetLatestUpdatedAuthorQuery;
+import com.microsoft.research.query.LatestUpdatedAuthorQuery;
 import com.microsoft.research.query.constant.AcademicSearchApiUrls;
 
 /**
- * The Class GetLatestUpdatedAuthorQueryImpl.
+ * The Class LatestUpdatedAuthorQueryImpl.
  */
-public class GetLatestUpdatedAuthorQueryImpl extends
+public class LatestUpdatedAuthorQueryImpl extends
 		BaseApiQuery<Author> implements
-		GetLatestUpdatedAuthorQuery {
+		LatestUpdatedAuthorQuery {
 
 	/**
-	 * Instantiates a new gets the latest updated author query impl.
+	 * Instantiates a new latest updated author query impl.
 	 * 
 	 * @param applicationId the application id
 	 */
-	public GetLatestUpdatedAuthorQueryImpl(String applicationId) {
+	public LatestUpdatedAuthorQueryImpl(String applicationId) {
 		super(applicationId);
 	}
 

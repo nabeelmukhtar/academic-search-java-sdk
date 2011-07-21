@@ -20,9 +20,9 @@ import com.microsoft.research.Author;
 import com.microsoft.research.PagedList;
 
 /**
- * The Interface GetMostViewedAuthorQuery.
+ * The Interface MostViewedAuthorQuery.
  */
-public interface GetMostViewedAuthorQuery extends
+public interface MostViewedAuthorQuery extends
 		AcademicSearchAuthenticationClient {
 	
 	/**
@@ -30,18 +30,18 @@ public interface GetMostViewedAuthorQuery extends
 	 * 
 	 * @param domainId the domain id
 	 * 
-	 * @return the gets the most viewed author query
+	 * @return the most viewed author query
 	 */
-	public GetMostViewedAuthorQuery withDomainId(int domainId);
+	public MostViewedAuthorQuery withDomainId(int domainId);
 	
 	/**
 	 * With sub domain id.
 	 * 
 	 * @param subDomainId the sub domain id
 	 * 
-	 * @return the gets the most viewed author query
+	 * @return the most viewed author query
 	 */
-	public GetMostViewedAuthorQuery withSubDomainId(int subDomainId);
+	public MostViewedAuthorQuery withSubDomainId(int subDomainId);
 	
 	/**
 	 * List.

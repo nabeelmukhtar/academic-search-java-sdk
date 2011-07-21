@@ -26,15 +26,15 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
-import com.microsoft.research.Domain;
+import com.microsoft.research.Author;
 import com.microsoft.research.PagedList;
 import com.microsoft.research.query.AcademicSearchQueryFactory;
-import com.microsoft.research.query.GetDomainListQuery;
+import com.microsoft.research.query.MostViewedAuthorQuery;
 
 /**
- * The Class GetDomainListSample.
+ * The Class MostViewedAuthorSample.
  */
-public class GetDomainListSample {
+public class MostViewedAuthorSample {
 
     /** The Constant APPLICATION_KEY_OPTION. */
     private static final String APPLICATION_KEY_OPTION = "appid";
@@ -69,8 +69,8 @@ public class GetDomainListSample {
             printHelp(options);            
         } else if(line.hasOption(APPLICATION_KEY_OPTION)) {
     		AcademicSearchQueryFactory factory = AcademicSearchQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
-    		GetDomainListQuery query = factory.newGetDomainListQuery();
-    		PagedList<Domain> response = query.list();
+    		MostViewedAuthorQuery query = factory.newMostViewedAuthorQuery();
+    		PagedList<Author> response = query.withDomainId(1).list();
     		printResponse(response);
         } else {
         	printHelp(options);
@@ -82,14 +82,14 @@ public class GetDomainListSample {
 	 * 
 	 * @param response the response
 	 */
-	private static void printResponse(PagedList<Domain> response) {
+	private static void printResponse(PagedList<Author> response) {
 		System.out.println(response.getStartIndex());
 		System.out.println(response.getEndIndex());
 		System.out.println(response.getTotalItems());
-		for (Domain result : response) {
-			System.out.println(result.getName());			
-			System.out.println(result.getCitationCount());			
-			System.out.println(result.getPublicationCount());			
+		for (Author result : response) {
+			System.out.println(result.getFirstName() + result.getLastName());			
+			System.out.println(result.getHomepageURL());			
+			System.out.println(result.getAffiliation());			
 			System.out.println("=======================================");			
 		}
 	}
@@ -124,7 +124,7 @@ public class GetDomainListSample {
      */
     private static void printHelp(Options options) {
         int width = 80;
-        String syntax = GetDomainListSample.class.getName() + " <options>";
+        String syntax = MostViewedAuthorSample.class.getName() + " <options>";
         String header = MessageFormat.format("\nThe -{0} option is required. All others are optional.", APPLICATION_KEY_OPTION);
         new HelpFormatter().printHelp(width, syntax, header, options, null, false);
     }

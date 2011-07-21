@@ -16,21 +16,21 @@
  */
 package com.microsoft.research.query;
 
-import com.microsoft.research.Author;
 import com.microsoft.research.PagedList;
+import com.microsoft.research.Publication;
 
 /**
- * The Interface GetLatestUpdatedAuthorQuery.
+ * The Interface LatestUpdatedPublicationQuery.
  */
-public interface GetLatestUpdatedAuthorQuery extends
+public interface LatestUpdatedPublicationQuery extends
 		AcademicSearchAuthenticationClient {
 	
 	/**
 	 * List.
 	 * 
-	 * @return the paged list< author>
+	 * @return the paged list< publication>
 	 */
-	public PagedList<Author> list();
+	public PagedList<Publication> list();
 
 	/**
 	 * Reset.

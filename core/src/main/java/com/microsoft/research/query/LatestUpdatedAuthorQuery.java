@@ -16,30 +16,21 @@
  */
 package com.microsoft.research.query;
 
-import com.microsoft.research.Domain;
+import com.microsoft.research.Author;
 import com.microsoft.research.PagedList;
 
 /**
- * The Interface GetSubDomainListQuery.
+ * The Interface LatestUpdatedAuthorQuery.
  */
-public interface GetSubDomainListQuery extends
+public interface LatestUpdatedAuthorQuery extends
 		AcademicSearchAuthenticationClient {
-	
-	/**
-	 * With domain id.
-	 * 
-	 * @param domainId the domain id
-	 * 
-	 * @return the gets the sub domain list query
-	 */
-	public GetSubDomainListQuery withDomainId(int domainId);
 	
 	/**
 	 * List.
 	 * 
-	 * @return the paged list< domain>
+	 * @return the paged list< author>
 	 */
-	public PagedList<Domain> list();
+	public PagedList<Author> list();
 
 	/**
 	 * Reset.

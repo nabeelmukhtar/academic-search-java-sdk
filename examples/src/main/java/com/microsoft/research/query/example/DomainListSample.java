@@ -26,15 +26,15 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import com.microsoft.research.Domain;
 import com.microsoft.research.PagedList;
-import com.microsoft.research.Publication;
 import com.microsoft.research.query.AcademicSearchQueryFactory;
-import com.microsoft.research.query.GetMostViewedPublicationQuery;
+import com.microsoft.research.query.DomainListQuery;
 
 /**
- * The Class GetMostViewedPublicationSample.
+ * The Class DomainListSample.
  */
-public class GetMostViewedPublicationSample {
+public class DomainListSample {
 
     /** The Constant APPLICATION_KEY_OPTION. */
     private static final String APPLICATION_KEY_OPTION = "appid";
@@ -69,8 +69,8 @@ public class GetMostViewedPublicationSample {
             printHelp(options);            
         } else if(line.hasOption(APPLICATION_KEY_OPTION)) {
     		AcademicSearchQueryFactory factory = AcademicSearchQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
-    		GetMostViewedPublicationQuery query = factory.newGetMostViewedPublicationQuery();
-    		PagedList<Publication> response = query.withDomainId(1).list();
+    		DomainListQuery query = factory.newDomainListQuery();
+    		PagedList<Domain> response = query.list();
     		printResponse(response);
         } else {
         	printHelp(options);
@@ -82,14 +82,14 @@ public class GetMostViewedPublicationSample {
 	 * 
 	 * @param response the response
 	 */
-	private static void printResponse(PagedList<Publication> response) {
+	private static void printResponse(PagedList<Domain> response) {
 		System.out.println(response.getStartIndex());
 		System.out.println(response.getEndIndex());
 		System.out.println(response.getTotalItems());
-		for (Publication result : response) {
-			System.out.println(result.getTitle());			
-			System.out.println(result.getAbstract());			
-			System.out.println(result.getAuthor());			
+		for (Domain result : response) {
+			System.out.println(result.getName());			
+			System.out.println(result.getCitationCount());			
+			System.out.println(result.getPublicationCount());			
 			System.out.println("=======================================");			
 		}
 	}
@@ -124,7 +124,7 @@ public class GetMostViewedPublicationSample {
      */
     private static void printHelp(Options options) {
         int width = 80;
-        String syntax = GetMostViewedPublicationSample.class.getName() + " <options>";
+        String syntax = DomainListSample.class.getName() + " <options>";
         String header = MessageFormat.format("\nThe -{0} option is required. All others are optional.", APPLICATION_KEY_OPTION);
         new HelpFormatter().printHelp(width, syntax, header, options, null, false);
     }

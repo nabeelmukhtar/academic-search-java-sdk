@@ -22,23 +22,32 @@ import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.microsoft.research.Domain;
 import com.microsoft.research.PagedList;
-import com.microsoft.research.query.GetDomainListQuery;
+import com.microsoft.research.query.SubDomainListQuery;
 import com.microsoft.research.query.constant.AcademicSearchApiUrls;
+import com.microsoft.research.query.constant.ParameterNames;
 
 /**
- * The Class GetDomainListQueryImpl.
+ * The Class SubDomainListQueryImpl.
  */
-public class GetDomainListQueryImpl extends
+public class SubDomainListQueryImpl extends
 		BaseApiQuery<Domain> implements
-		GetDomainListQuery {
+		SubDomainListQuery {
 
 	/**
-	 * Instantiates a new gets the domain list query impl.
+	 * Instantiates a new sub domain list query impl.
 	 * 
 	 * @param applicationId the application id
 	 */
-	public GetDomainListQueryImpl(String applicationId) {
+	public SubDomainListQueryImpl(String applicationId) {
 		super(applicationId);
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.microsoft.research.query.GetSubDomainListQuery#withDomainId(int)
+	 */
+	public SubDomainListQuery withDomainId(int domainId) {
+		apiUrlBuilder.withParameter(ParameterNames.DOMAIN_ID, domainId);
+		return this;
 	}
 
 	/*

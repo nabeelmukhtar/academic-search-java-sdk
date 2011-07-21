@@ -20,9 +20,9 @@ import com.microsoft.research.Domain;
 import com.microsoft.research.PagedList;
 
 /**
- * The Interface GetDomainListQuery.
+ * The Interface DomainListQuery.
  */
-public interface GetDomainListQuery extends
+public interface DomainListQuery extends
 		AcademicSearchAuthenticationClient {
 	
 	/**

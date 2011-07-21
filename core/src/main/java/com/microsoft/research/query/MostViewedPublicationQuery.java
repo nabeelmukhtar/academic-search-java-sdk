@@ -20,10 +20,28 @@ import com.microsoft.research.PagedList;
 import com.microsoft.research.Publication;
 
 /**
- * The Interface GetLatestUpdatedPublicationQuery.
+ * The Interface MostViewedPublicationQuery.
  */
-public interface GetLatestUpdatedPublicationQuery extends
+public interface MostViewedPublicationQuery extends
 		AcademicSearchAuthenticationClient {
+	
+	/**
+	 * With domain id.
+	 * 
+	 * @param domainId the domain id
+	 * 
+	 * @return the most viewed publication query
+	 */
+	public MostViewedPublicationQuery withDomainId(int domainId);
+	
+	/**
+	 * With sub domain id.
+	 * 
+	 * @param subDomainId the sub domain id
+	 * 
+	 * @return the most viewed publication query
+	 */
+	public MostViewedPublicationQuery withSubDomainId(int subDomainId);
 	
 	/**
 	 * List.

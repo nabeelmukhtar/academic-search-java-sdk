@@ -16,13 +16,13 @@
  */
 package com.microsoft.research.query;
 
+import com.microsoft.research.Domain;
 import com.microsoft.research.PagedList;
-import com.microsoft.research.Publication;
 
 /**
- * The Interface GetMostViewedPublicationQuery.
+ * The Interface SubDomainListQuery.
  */
-public interface GetMostViewedPublicationQuery extends
+public interface SubDomainListQuery extends
 		AcademicSearchAuthenticationClient {
 	
 	/**
@@ -30,25 +30,16 @@ public interface GetMostViewedPublicationQuery extends
 	 * 
 	 * @param domainId the domain id
 	 * 
-	 * @return the gets the most viewed publication query
+	 * @return the sub domain list query
 	 */
-	public GetMostViewedPublicationQuery withDomainId(int domainId);
-	
-	/**
-	 * With sub domain id.
-	 * 
-	 * @param subDomainId the sub domain id
-	 * 
-	 * @return the gets the most viewed publication query
-	 */
-	public GetMostViewedPublicationQuery withSubDomainId(int subDomainId);
+	public SubDomainListQuery withDomainId(int domainId);
 	
 	/**
 	 * List.
 	 * 
-	 * @return the paged list< publication>
+	 * @return the paged list< domain>
 	 */
-	public PagedList<Publication> list();
+	public PagedList<Domain> list();
 
 	/**
 	 * Reset.

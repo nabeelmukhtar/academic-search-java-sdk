@@ -26,15 +26,15 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import com.microsoft.research.Author;
 import com.microsoft.research.PagedList;
-import com.microsoft.research.Publication;
 import com.microsoft.research.query.AcademicSearchQueryFactory;
-import com.microsoft.research.query.GetLatestUpdatedPublicationQuery;
+import com.microsoft.research.query.LatestUpdatedAuthorQuery;
 
 /**
- * The Class GetLatestUpdatedPublicationSample.
+ * The Class LatestUpdatedAuthorSample.
  */
-public class GetLatestUpdatedPublicationSample {
+public class LatestUpdatedAuthorSample {
 
     /** The Constant APPLICATION_KEY_OPTION. */
     private static final String APPLICATION_KEY_OPTION = "appid";
@@ -69,8 +69,8 @@ public class GetLatestUpdatedPublicationSample {
             printHelp(options);            
         } else if(line.hasOption(APPLICATION_KEY_OPTION)) {
     		AcademicSearchQueryFactory factory = AcademicSearchQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
-    		GetLatestUpdatedPublicationQuery query = factory.newGetLatestUpdatedPublicationQuery();
-    		PagedList<Publication> response = query.list();
+    		LatestUpdatedAuthorQuery query = factory.newLatestUpdatedAuthorQuery();
+    		PagedList<Author> response = query.list();
     		printResponse(response);
         } else {
         	printHelp(options);
@@ -82,14 +82,14 @@ public class GetLatestUpdatedPublicationSample {
 	 * 
 	 * @param response the response
 	 */
-	private static void printResponse(PagedList<Publication> response) {
+	private static void printResponse(PagedList<Author> response) {
 		System.out.println(response.getStartIndex());
 		System.out.println(response.getEndIndex());
 		System.out.println(response.getTotalItems());
-		for (Publication result : response) {
-			System.out.println(result.getTitle());			
-			System.out.println(result.getAbstract());			
-			System.out.println(result.getAuthor());			
+		for (Author result : response) {
+			System.out.println(result.getFirstName() + result.getLastName());			
+			System.out.println(result.getHomepageURL());			
+			System.out.println(result.getAffiliation());			
 			System.out.println("=======================================");			
 		}
 	}
@@ -124,7 +124,7 @@ public class GetLatestUpdatedPublicationSample {
      */
     private static void printHelp(Options options) {
         int width = 80;
-        String syntax = GetLatestUpdatedPublicationSample.class.getName() + " <options>";
+        String syntax = LatestUpdatedAuthorSample.class.getName() + " <options>";
         String header = MessageFormat.format("\nThe -{0} option is required. All others are optional.", APPLICATION_KEY_OPTION);
         new HelpFormatter().printHelp(width, syntax, header, options, null, false);
     }
