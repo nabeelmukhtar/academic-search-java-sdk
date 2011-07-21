@@ -66,7 +66,7 @@ public class Publication
     protected List<Author> author;
     protected Long citationCount;
     protected Conference conference;
-    protected String doi;
+    protected String dOI;
     protected List<String> fullVersionURL;
     protected Long iD;
     protected Journal journal;
@@ -184,7 +184,7 @@ public class Publication
      *     
      */
     public String getDOI() {
-        return doi;
+        return dOI;
     }
 
     /**
@@ -196,7 +196,7 @@ public class Publication
      *     
      */
     public void setDOI(String value) {
-        this.doi = value;
+        this.dOI = value;
     }
 
     /**
