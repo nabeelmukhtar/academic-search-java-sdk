@@ -64,7 +64,7 @@ public class Author
     protected Long gIndex;
     protected Long hIndex;
     protected String homepageURL;
-    protected Long id;
+    protected Long iD;
     protected String lastName;
     protected String middleName;
     protected String nativeName;
@@ -248,7 +248,7 @@ public class Author
      *     
      */
     public Long getID() {
-        return id;
+        return iD;
     }
 
     /**
@@ -260,7 +260,7 @@ public class Author
      *     
      */
     public void setID(Long value) {
-        this.id = value;
+        this.iD = value;
     }
 
     /**

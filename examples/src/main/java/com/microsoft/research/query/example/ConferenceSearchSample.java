@@ -90,6 +90,7 @@ public class ConferenceSearchSample {
 		System.out.println(response.getEndIndex());
 		System.out.println(response.getTotalItems());
 		for (Conference result : response) {
+			System.out.println(result.getCFP());
 			System.out.println(result.getFullName());			
 			System.out.println(result.getHomepageURL());			
 			System.out.println(result.getCitationCount());			

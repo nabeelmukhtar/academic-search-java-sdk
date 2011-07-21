@@ -90,6 +90,7 @@ public class PublicationSearchSample {
 		System.out.println(response.getEndIndex());
 		System.out.println(response.getTotalItems());
 		for (Publication result : response) {
+			System.out.println(result.getID());
 			System.out.println(result.getTitle());			
 			System.out.println(result.getAbstract());			
 			System.out.println(result.getAuthor());			

@@ -20,8 +20,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.nio.charset.Charset;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Matcher;
 
 import org.datacontract.schemas._2004._07.libra_service.PublicationType;
 
@@ -227,7 +229,6 @@ public abstract class BaseApiQuery<T> extends
 	 */
 	protected GsonBuilder getGsonBuilder() {
 		GsonBuilder builder = new GsonBuilder();
-		builder.setDateFormat(ApplicationConstants.RFC822DATEFORMAT);
 		builder.setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE);
 		builder.registerTypeAdapter(PublicationType.class,
 				new JsonDeserializer<PublicationType>() {
@@ -237,6 +238,23 @@ public abstract class BaseApiQuery<T> extends
 							Type arg1, JsonDeserializationContext arg2)
 							throws JsonParseException {
 						return PublicationType.fromNumber(arg0.getAsInt());
+					}
+
+				});
+		builder.registerTypeAdapter(Date.class,
+				new JsonDeserializer<Date>() {
+
+					@Override
+					public Date deserialize(JsonElement arg0,
+							Type arg1, JsonDeserializationContext arg2)
+							throws JsonParseException {
+						if (arg0 != null) {
+							Matcher matcher = ApplicationConstants.DATE_FORMAT.matcher(arg0.getAsString());
+							if (matcher.find() && matcher.groupCount() == 2) {
+								return new Date(Long.parseLong(matcher.group(1)));
+							}
+						}
+						return null;
 					}
 
 				});

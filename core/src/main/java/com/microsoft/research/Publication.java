@@ -68,7 +68,7 @@ public class Publication
     protected Conference conference;
     protected String doi;
     protected List<String> fullVersionURL;
-    protected Long id;
+    protected Long iD;
     protected Journal journal;
     protected List<Keyword> keyword;
     protected Long referenceCount;
@@ -235,7 +235,7 @@ public class Publication
      *     
      */
     public Long getID() {
-        return id;
+        return iD;
     }
 
     /**
@@ -247,7 +247,7 @@ public class Publication
      *     
      */
     public void setID(Long value) {
-        this.id = value;
+        this.iD = value;
     }
 
     /**

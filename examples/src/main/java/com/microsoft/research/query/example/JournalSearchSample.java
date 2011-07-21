@@ -90,6 +90,7 @@ public class JournalSearchSample {
 		System.out.println(response.getEndIndex());
 		System.out.println(response.getTotalItems());
 		for (Journal result : response) {
+			System.out.println(result.getID());
 			System.out.println(result.getFullName());			
 			System.out.println(result.getHomepageURL());			
 			System.out.println(result.getISSN());			

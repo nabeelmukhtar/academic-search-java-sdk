@@ -58,8 +58,8 @@ public class Journal
     protected Integer endYear;
     protected String fullName;
     protected String homepageURL;
-    protected Long id;
-    protected String issn;
+    protected Long iD;
+    protected String iSSN;
     protected Long publicationCount;
     protected List<Domain> researchInterestDomain;
     protected String shortName;
@@ -170,7 +170,7 @@ public class Journal
      *     
      */
     public Long getID() {
-        return id;
+        return iD;
     }
 
     /**
@@ -182,7 +182,7 @@ public class Journal
      *     
      */
     public void setID(Long value) {
-        this.id = value;
+        this.iD = value;
     }
 
     /**
@@ -194,7 +194,7 @@ public class Journal
      *     
      */
     public String getISSN() {
-        return issn;
+        return iSSN;
     }
 
     /**
@@ -206,7 +206,7 @@ public class Journal
      *     
      */
     public void setISSN(String value) {
-        this.issn = value;
+        this.iSSN = value;
     }
 
     /**

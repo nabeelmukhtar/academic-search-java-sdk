@@ -55,12 +55,12 @@ public class Conference
 {
 
     private final static long serialVersionUID = 2461660169443089969L;
-    protected CFPInfo cfp;
+    protected CFPInfo cFP;
     protected Long citationCount;
     protected Integer endYear;
     protected String fullName;
     protected String homepageURL;
-    protected Long id;
+    protected Long iD;
     protected Long publicationCount;
     protected List<Domain> researchInterestDomain;
     protected String shortName;
@@ -75,7 +75,7 @@ public class Conference
      *     
      */
     public CFPInfo getCFP() {
-        return cfp;
+        return cFP;
     }
 
     /**
@@ -87,7 +87,7 @@ public class Conference
      *     
      */
     public void setCFP(CFPInfo value) {
-        this.cfp = value;
+        this.cFP = value;
     }
 
     /**
@@ -195,7 +195,7 @@ public class Conference
      *     
      */
     public Long getID() {
-        return id;
+        return iD;
     }
 
     /**
@@ -207,7 +207,7 @@ public class Conference
      *     
      */
     public void setID(Long value) {
-        this.id = value;
+        this.iD = value;
     }
 
     /**

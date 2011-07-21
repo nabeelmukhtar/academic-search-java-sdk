@@ -47,7 +47,7 @@ public class Keyword
 
     private final static long serialVersionUID = 2461660169443089969L;
     protected Long citationCount;
-    protected Long id;
+    protected Long iD;
     protected String name;
     protected Long publicationCount;
 
@@ -84,7 +84,7 @@ public class Keyword
      *     
      */
     public Long getID() {
-        return id;
+        return iD;
     }
 
     /**
@@ -96,7 +96,7 @@ public class Keyword
      *     
      */
     public void setID(Long value) {
-        this.id = value;
+        this.iD = value;
     }
 
     /**

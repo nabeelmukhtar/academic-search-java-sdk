@@ -54,7 +54,7 @@ public class Organization
     protected Long authorCount;
     protected Long citationCount;
     protected String homepageURL;
-    protected Long id;
+    protected Long iD;
     protected String name;
     protected Long publicationCount;
     protected List<Domain> researchInterestDomain;
@@ -140,7 +140,7 @@ public class Organization
      *     
      */
     public Long getID() {
-        return id;
+        return iD;
     }
 
     /**
@@ -152,7 +152,7 @@ public class Organization
      *     
      */
     public void setID(Long value) {
-        this.id = value;
+        this.iD = value;
     }
 
     /**

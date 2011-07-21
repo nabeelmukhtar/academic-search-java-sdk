@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 /**
  * The Class ApplicationConstants.
@@ -52,8 +53,8 @@ public final class ApplicationConstants {
 	/** The Constant DEFAULT_API_VERSION. */
 	public static final String DEFAULT_API_VERSION = getProperty("com.microsoft.research.query.defaultApiVersion");
 
-	/** The Constant RFC822DATEFORMAT. */
-	public static final String RFC822DATEFORMAT = getProperty("com.microsoft.research.query.dateFormat");
+	/** The Constant DATE_FORMAT. */
+	public static final Pattern DATE_FORMAT = getPatternProperty("com.microsoft.research.query.dateFormat");
 
 	/** The Constant CONNECT_TIMEOUT. */
 	public static final int CONNECT_TIMEOUT = getIntProperty("com.microsoft.research.query.connectTimeout");
@@ -143,6 +144,24 @@ public final class ApplicationConstants {
 			return 0;
 		} else {
 			return Long.parseLong(property);
+		}
+	}
+	
+	/**
+	 * Gets the pattern property.
+	 * 
+	 * @param key
+	 *            the key
+	 * 
+	 * @return the pattern property
+	 */
+	public static Pattern getPatternProperty(String key) {
+		String property = applicationConstants.getProperty(key);
+
+		if (isNullOrEmpty(property)) {
+			return null;
+		} else {
+			return Pattern.compile(property);
 		}
 	}
 
