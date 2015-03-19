@@ -1,0 +1,1 @@
+A Java wrapper for Microsoft Academic Search API.
